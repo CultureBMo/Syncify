@@ -44,6 +44,8 @@
                     file.Tag.Title = newTitle;
                     file.Save();
                 }
+
+                Application.DoEvents();
             }
 
             stopwatch.Stop();
