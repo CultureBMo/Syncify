@@ -1,14 +1,14 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
-
-namespace Syncify
+﻿namespace Syncify
 {
-    public partial class mainForm : Form
+    using System;
+    using System.IO;
+    using System.Windows.Forms;
+
+    public partial class MainForm : Form
     {
-        public mainForm()
+        public MainForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Syncify
             foreach (var mp3File in mp3Files)
             {
                 var file = TagLib.File.Create(mp3File);
-                if (!RenamedAlready(file.Tag.Title))
+                if (!this.RenamedAlready(file.Tag.Title))
                 {
                     var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
 
