@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1450718047_icon-71-document-file-mp3.ico" />
+    <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

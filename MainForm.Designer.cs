@@ -82,6 +82,7 @@
             this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.logTextBox.Size = new System.Drawing.Size(442, 229);
             this.logTextBox.TabIndex = 4;
+            this.logTextBox.Text = resources.GetString("logTextBox.Text");
             // 
             // MainForm
             // 
