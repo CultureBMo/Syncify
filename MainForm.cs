@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     public partial class MainForm : Form
@@ -22,35 +23,38 @@
         private void GoButton_Click(object sender, EventArgs e)
         {
             this.logTextBox.Text = string.Empty;
-            var stopwatch = new System.Diagnostics.Stopwatch();
-            stopwatch.Start();
-
             this.Log("Retitling...");
             this.Log("-");
+
+            var stopwatch = new System.Diagnostics.Stopwatch();
+            stopwatch.Start();
 
             var folder = this.folderTextBox.Text;
             var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
 
-            foreach (var mp3File in mp3Files)
+            Parallel.ForEach(mp3Files, currentFile =>
             {
-                var file = TagLib.File.Create(mp3File);
+                var file = TagLib.File.Create(currentFile);
                 if (!this.RenamedAlready(file.Tag.Title))
                 {
                     var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
 
-                    this.Log(file.Tag.Title + " renamed " + newTitle);
-                    this.Log("-");
-
                     file.Tag.Title = newTitle;
                     file.Save();
-                }
 
-                Application.DoEvents();
-            }
+                    this.Invoke(new Action(() =>
+                    {
+                        this.Log(file.Tag.Title + " renamed " + newTitle);
+                        this.Log("-");
+                    }));
+                }
+            });
 
             stopwatch.Stop();
+
             this.Log(string.Format("Time elapsed: {0}", stopwatch.Elapsed));
             this.Log("Copyright © CultureBMo 2015");
+            this.Log("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
             this.Log("Icon copyright © Yannick Lung http://www.yanlu.de");
         }
 
