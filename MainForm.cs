@@ -53,7 +53,7 @@
             stopwatch.Stop();
 
             this.Log(string.Format("Time elapsed: {0}", stopwatch.Elapsed));
-            this.Log("Copyright © CultureBMo 2015");
+            this.Log("Copyright © CultureBMo 2016");
             this.Log("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
             this.Log("Icon copyright © Yannick Lung http://www.yanlu.de");
         }
