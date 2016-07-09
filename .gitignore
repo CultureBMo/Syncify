@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/Syncify/v14
+/bin/Debug
+/obj/Debug
+/packages
+/Syncify.csproj.user

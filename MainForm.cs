@@ -38,13 +38,14 @@
                 if (!this.RenamedAlready(file.Tag.Title))
                 {
                     var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
+                    var oldTitle = file.Tag.Title;
 
                     file.Tag.Title = newTitle;
                     file.Save();
 
                     this.Invoke(new Action(() =>
                     {
-                        this.Log(file.Tag.Title + " renamed " + newTitle);
+                        this.Log(oldTitle + " renamed " + newTitle);
                         this.Log("-");
                     }));
                 }
