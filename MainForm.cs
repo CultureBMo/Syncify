@@ -32,7 +32,7 @@
             var folder = this.folderTextBox.Text;
             var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
 
-            Parallel.ForEach(mp3Files, currentFile =>
+            foreach (var currentFile in mp3Files)
             {
                 var file = TagLib.File.Create(currentFile);
                 if (!this.RenamedAlready(file.Tag.Title))
@@ -43,13 +43,10 @@
                     file.Tag.Title = newTitle;
                     file.Save();
 
-                    this.Invoke(new Action(() =>
-                    {
-                        this.Log(oldTitle + " renamed " + newTitle);
-                        this.Log("-");
-                    }));
+                    this.Log(oldTitle + " renamed " + newTitle);
+                    this.Log("-");
                 }
-            });
+            }
 
             stopwatch.Stop();
 
