@@ -51,7 +51,7 @@
             stopwatch.Stop();
 
             this.Log(string.Format("Time elapsed: {0}", stopwatch.Elapsed));
-            this.Log("Copyright © CultureBMo 2016");
+            this.Log("Copyright © CultureBMo 2018");
             this.Log("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
             this.Log("Icon copyright © Yannick Lung http://www.yanlu.de");
         }
@@ -65,8 +65,7 @@
         {
             if (title.Length > 1)
             {
-                int returnInt;
-                return int.TryParse(title.Substring(0, 2), out returnInt);
+                return int.TryParse(title.Substring(0, 2), out int returnInt);
             }
 
             return false;
