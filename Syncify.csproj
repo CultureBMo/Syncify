@@ -70,6 +70,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ToDo.txt" />
     <None Include="1468086191_icon-71-document-file-mp3.ico" />
     <Content Include="License.txt" />
   </ItemGroup>
