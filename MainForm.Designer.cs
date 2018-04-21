@@ -35,6 +35,7 @@
             this.goButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.logTextBox = new System.Windows.Forms.TextBox();
+            this.fixGenresButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // folderLabel
@@ -84,11 +85,22 @@
             this.logTextBox.TabIndex = 4;
             this.logTextBox.Text = resources.GetString("logTextBox.Text");
             // 
+            // fixGenresButton
+            // 
+            this.fixGenresButton.Location = new System.Drawing.Point(12, 42);
+            this.fixGenresButton.Name = "fixGenresButton";
+            this.fixGenresButton.Size = new System.Drawing.Size(75, 23);
+            this.fixGenresButton.TabIndex = 5;
+            this.fixGenresButton.Text = "Fix Genres";
+            this.fixGenresButton.UseVisualStyleBackColor = true;
+            this.fixGenresButton.Click += new System.EventHandler(this.FixGenresButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 312);
+            this.Controls.Add(this.fixGenresButton);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.browseButton);
@@ -110,6 +122,7 @@
         private System.Windows.Forms.Button goButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.TextBox logTextBox;
+        private System.Windows.Forms.Button fixGenresButton;
     }
 }
 

@@ -70,5 +70,36 @@
 
             return false;
         }
+
+        private void FixGenresButton_Click(object sender, EventArgs e)
+        {
+            this.logTextBox.Text = string.Empty;
+            this.Log("Fixing genres...");
+            this.Log("-");
+
+            var stopwatch = new System.Diagnostics.Stopwatch();
+            stopwatch.Start();
+
+            var folder = this.folderTextBox.Text;
+            var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
+
+            foreach (var currentFile in mp3Files)
+            {
+                var file = TagLib.File.Create(currentFile);
+
+                file.Tag.Genres = new string[] { "Podcast" };
+                file.Save();
+
+                this.Log(currentFile + " fixed");
+                this.Log("-");
+            }
+
+            stopwatch.Stop();
+
+            this.Log(string.Format("Time elapsed: {0}", stopwatch.Elapsed));
+            this.Log("Copyright © CultureBMo 2018");
+            this.Log("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
+            this.Log("Icon copyright © Yannick Lung http://www.yanlu.de");
+        }
     }
 }
