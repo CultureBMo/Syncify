@@ -53,7 +53,6 @@
             this.folderTextBox.Name = "folderTextBox";
             this.folderTextBox.Size = new System.Drawing.Size(319, 20);
             this.folderTextBox.TabIndex = 1;
-            this.folderTextBox.Text = "C:\\Temp";
             // 
             // browseButton
             // 

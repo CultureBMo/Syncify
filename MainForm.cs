@@ -10,6 +10,8 @@
         public MainForm()
         {
             this.InitializeComponent();
+
+            this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
@@ -83,11 +85,13 @@
             var folder = this.folderTextBox.Text;
             var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
 
+            var newGenre = Properties.Settings.Default.Genre;
+
             foreach (var currentFile in mp3Files)
             {
                 var file = TagLib.File.Create(currentFile);
 
-                file.Tag.Genres = new string[] { "Podcast" };
+                file.Tag.Genres = new string[] { newGenre };
                 file.Save();
 
                 this.Log(currentFile + " fixed");
