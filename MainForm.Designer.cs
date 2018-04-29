@@ -32,7 +32,7 @@
             this.folderLabel = new System.Windows.Forms.Label();
             this.folderTextBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
-            this.goButton = new System.Windows.Forms.Button();
+            this.retitleButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.fixGenresButton = new System.Windows.Forms.Button();
@@ -64,15 +64,15 @@
             this.browseButton.UseVisualStyleBackColor = true;
             this.browseButton.Click += new System.EventHandler(this.BrowseButton_Click);
             // 
-            // goButton
+            // retitleButton
             // 
-            this.goButton.Location = new System.Drawing.Point(379, 42);
-            this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(75, 23);
-            this.goButton.TabIndex = 3;
-            this.goButton.Text = "Go";
-            this.goButton.UseVisualStyleBackColor = true;
-            this.goButton.Click += new System.EventHandler(this.GoButton_Click);
+            this.retitleButton.Location = new System.Drawing.Point(379, 42);
+            this.retitleButton.Name = "retitleButton";
+            this.retitleButton.Size = new System.Drawing.Size(75, 23);
+            this.retitleButton.TabIndex = 3;
+            this.retitleButton.Text = "Retitle";
+            this.retitleButton.UseVisualStyleBackColor = true;
+            this.retitleButton.Click += new System.EventHandler(this.RetitleButton_Click);
             // 
             // logTextBox
             // 
@@ -86,13 +86,13 @@
             // 
             // fixGenresButton
             // 
-            this.fixGenresButton.Location = new System.Drawing.Point(12, 42);
+            this.fixGenresButton.Location = new System.Drawing.Point(298, 42);
             this.fixGenresButton.Name = "fixGenresButton";
             this.fixGenresButton.Size = new System.Drawing.Size(75, 23);
             this.fixGenresButton.TabIndex = 5;
-            this.fixGenresButton.Text = "Fix Genres";
+            this.fixGenresButton.Text = "Set Genre";
             this.fixGenresButton.UseVisualStyleBackColor = true;
-            this.fixGenresButton.Click += new System.EventHandler(this.FixGenresButton_Click);
+            this.fixGenresButton.Click += new System.EventHandler(this.SetGenresButton_Click);
             // 
             // MainForm
             // 
@@ -101,7 +101,7 @@
             this.ClientSize = new System.Drawing.Size(466, 312);
             this.Controls.Add(this.fixGenresButton);
             this.Controls.Add(this.logTextBox);
-            this.Controls.Add(this.goButton);
+            this.Controls.Add(this.retitleButton);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.folderTextBox);
             this.Controls.Add(this.folderLabel);
@@ -118,7 +118,7 @@
         private System.Windows.Forms.Label folderLabel;
         private System.Windows.Forms.TextBox folderTextBox;
         private System.Windows.Forms.Button browseButton;
-        private System.Windows.Forms.Button goButton;
+        private System.Windows.Forms.Button retitleButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.TextBox logTextBox;
         private System.Windows.Forms.Button fixGenresButton;
