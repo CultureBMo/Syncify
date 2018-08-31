@@ -5,8 +5,5 @@
     <Setting Name="InitialPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Temp</Value>
     </Setting>
-    <Setting Name="Genre" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Podcast</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

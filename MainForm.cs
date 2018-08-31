@@ -11,19 +11,6 @@
             this.InitializeComponent();
 
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
-            this.Genre = Properties.Settings.Default.Genre;
-        }
-
-        private enum ManipulateType
-        {
-            Retitling,
-            SettingGenre
-        }
-
-        public string Genre
-        {
-            get;
-            set;
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
@@ -39,9 +26,9 @@
             this.logTextBox.AppendText(text + Environment.NewLine);
         }
 
-        private void ManipulateFiles(ManipulateType manipulate)
+        private void RetitleButton_Click(object sender, EventArgs e)
         {
-            this.WriteLogHeader(manipulate.ToString());
+            this.WriteLogHeader("Retitling...");
 
             var stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
@@ -53,25 +40,14 @@
             {
                 var file = TagLib.File.Create(currentFile);
 
-                switch (manipulate)
+                if (!this.RenamedAlready(file.Tag.Title))
                 {
-                    case ManipulateType.Retitling:
-                        if (!this.RenamedAlready(file.Tag.Title))
-                        {
-                            var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
-                            var oldTitle = file.Tag.Title;
+                    var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
+                    var oldTitle = file.Tag.Title;
 
-                            file.Tag.Title = newTitle;
+                    file.Tag.Title = newTitle;
 
-                            this.Log(oldTitle + " renamed " + newTitle);
-                        }
-
-                        break;
-
-                    case ManipulateType.SettingGenre:
-                        file.Tag.Genres = new string[] { this.Genre };
-                        this.Log(currentFile + " fixed");
-                        break;
+                    this.Log(oldTitle + " renamed " + newTitle);
                 }
 
                 file.Save();
@@ -90,16 +66,6 @@
             }
 
             return false;
-        }
-
-        private void RetitleButton_Click(object sender, EventArgs e)
-        {
-            this.ManipulateFiles(ManipulateType.Retitling);
-        }
-
-        private void SetGenresButton_Click(object sender, EventArgs e)
-        {
-            this.ManipulateFiles(ManipulateType.SettingGenre);
         }
 
         private void WriteLogHeader(string caption)

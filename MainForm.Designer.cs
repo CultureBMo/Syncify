@@ -35,7 +35,6 @@
             this.retitleButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.logTextBox = new System.Windows.Forms.TextBox();
-            this.fixGenresButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // folderLabel
@@ -70,7 +69,7 @@
             this.retitleButton.Name = "retitleButton";
             this.retitleButton.Size = new System.Drawing.Size(75, 23);
             this.retitleButton.TabIndex = 3;
-            this.retitleButton.Text = "Retitle";
+            this.retitleButton.Text = "Go";
             this.retitleButton.UseVisualStyleBackColor = true;
             this.retitleButton.Click += new System.EventHandler(this.RetitleButton_Click);
             // 
@@ -84,22 +83,11 @@
             this.logTextBox.TabIndex = 4;
             this.logTextBox.Text = resources.GetString("logTextBox.Text");
             // 
-            // fixGenresButton
-            // 
-            this.fixGenresButton.Location = new System.Drawing.Point(298, 42);
-            this.fixGenresButton.Name = "fixGenresButton";
-            this.fixGenresButton.Size = new System.Drawing.Size(75, 23);
-            this.fixGenresButton.TabIndex = 5;
-            this.fixGenresButton.Text = "Set Genre";
-            this.fixGenresButton.UseVisualStyleBackColor = true;
-            this.fixGenresButton.Click += new System.EventHandler(this.SetGenresButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 312);
-            this.Controls.Add(this.fixGenresButton);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.retitleButton);
             this.Controls.Add(this.browseButton);
@@ -121,7 +109,6 @@
         private System.Windows.Forms.Button retitleButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.TextBox logTextBox;
-        private System.Windows.Forms.Button fixGenresButton;
     }
 }
 
