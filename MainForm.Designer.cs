@@ -48,14 +48,17 @@
             // 
             // folderTextBox
             // 
+            this.folderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.folderTextBox.Location = new System.Drawing.Point(54, 12);
             this.folderTextBox.Name = "folderTextBox";
-            this.folderTextBox.Size = new System.Drawing.Size(319, 20);
+            this.folderTextBox.Size = new System.Drawing.Size(304, 20);
             this.folderTextBox.TabIndex = 1;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(379, 10);
+            this.browseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.browseButton.Location = new System.Drawing.Point(364, 10);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 2;
@@ -65,7 +68,8 @@
             // 
             // retitleButton
             // 
-            this.retitleButton.Location = new System.Drawing.Point(379, 42);
+            this.retitleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.retitleButton.Location = new System.Drawing.Point(364, 42);
             this.retitleButton.Name = "retitleButton";
             this.retitleButton.Size = new System.Drawing.Size(75, 23);
             this.retitleButton.TabIndex = 3;
@@ -75,11 +79,14 @@
             // 
             // logTextBox
             // 
+            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.logTextBox.Location = new System.Drawing.Point(12, 71);
             this.logTextBox.Multiline = true;
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logTextBox.Size = new System.Drawing.Size(442, 229);
+            this.logTextBox.Size = new System.Drawing.Size(427, 229);
             this.logTextBox.TabIndex = 4;
             this.logTextBox.Text = resources.GetString("logTextBox.Text");
             // 
@@ -87,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 312);
+            this.ClientSize = new System.Drawing.Size(451, 312);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.retitleButton);
             this.Controls.Add(this.browseButton);
