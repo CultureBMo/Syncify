@@ -42,7 +42,7 @@
             {
                 var file = TagLib.File.Create(currentFile);
 
-                if (!this.RenamedAlready(file.Tag.Title) && this.removePictures.Checked)
+                if (!this.RenamedAlready(file.Tag.Title) && this.retitle.Checked)
                 {
                     var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
                     var oldTitle = file.Tag.Title;
