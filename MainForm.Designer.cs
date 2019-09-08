@@ -35,6 +35,8 @@
             this.retitleButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.logTextBox = new System.Windows.Forms.TextBox();
+            this.retitle = new System.Windows.Forms.CheckBox();
+            this.removePictures = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // folderLabel
@@ -90,11 +92,37 @@
             this.logTextBox.TabIndex = 4;
             this.logTextBox.Text = resources.GetString("logTextBox.Text");
             // 
+            // retitle
+            // 
+            this.retitle.AutoSize = true;
+            this.retitle.Checked = true;
+            this.retitle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.retitle.Location = new System.Drawing.Point(54, 46);
+            this.retitle.Name = "retitle";
+            this.retitle.Size = new System.Drawing.Size(56, 17);
+            this.retitle.TabIndex = 5;
+            this.retitle.Text = "Retitle";
+            this.retitle.UseVisualStyleBackColor = true;
+            // 
+            // removePictures
+            // 
+            this.removePictures.AutoSize = true;
+            this.removePictures.Checked = true;
+            this.removePictures.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.removePictures.Location = new System.Drawing.Point(116, 46);
+            this.removePictures.Name = "removePictures";
+            this.removePictures.Size = new System.Drawing.Size(104, 17);
+            this.removePictures.TabIndex = 6;
+            this.removePictures.Text = "RemovePictures";
+            this.removePictures.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 312);
+            this.Controls.Add(this.removePictures);
+            this.Controls.Add(this.retitle);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.retitleButton);
             this.Controls.Add(this.browseButton);
@@ -116,6 +144,8 @@
         private System.Windows.Forms.Button retitleButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.TextBox logTextBox;
+        private System.Windows.Forms.CheckBox retitle;
+        private System.Windows.Forms.CheckBox removePictures;
     }
 }
 

@@ -11,6 +11,8 @@
             this.InitializeComponent();
 
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
+            this.retitle.Checked = Properties.Settings.Default.Retitle;
+            this.removePictures.Checked = Properties.Settings.Default.RemovePictures;
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
@@ -40,7 +42,7 @@
             {
                 var file = TagLib.File.Create(currentFile);
 
-                if (!this.RenamedAlready(file.Tag.Title))
+                if (!this.RenamedAlready(file.Tag.Title) && this.removePictures.Checked)
                 {
                     var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
                     var oldTitle = file.Tag.Title;
@@ -50,7 +52,17 @@
                     this.Log(oldTitle + " renamed " + newTitle);
                 }
 
+                if (this.removePictures.Checked)
+                {
+                    // remove associated pictures
+                    file.Tag.Pictures = Array.Empty<TagLib.IPicture>();
+
+                    this.Log("Removed image from  " + file.Tag.Title);
+                }
+
                 file.Save();
+                file.Dispose();
+
                 this.Log("-");
             }
 
