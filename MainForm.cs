@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
     using System.Windows.Forms;
 
     public partial class MainForm : Form
@@ -38,6 +39,9 @@
             var folder = this.folderTextBox.Text;
             var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
 
+            var jpgFiles = Directory.EnumerateFiles(folder, "*.jpg", SearchOption.AllDirectories);
+
+
             foreach (var currentFile in mp3Files)
             {
                 var file = TagLib.File.Create(currentFile);
@@ -52,12 +56,20 @@
                     this.Log(oldTitle + " renamed " + newTitle);
                 }
 
+                // remove pictures in the folder that may be associated
                 if (this.removePictures.Checked)
                 {
-                    // remove associated pictures
+                    if (jpgFiles.Any())
+                    {
+                        foreach (var jpg in jpgFiles)
+                        {
+                            File.Delete(jpg);
+                        }
+                    }
+
                     file.Tag.Pictures = Array.Empty<TagLib.IPicture>();
 
-                    this.Log("Removed image from  " + file.Tag.Title);
+                    this.Log("Removed image from " + file.Tag.Title);
                 }
 
                 file.Save();
