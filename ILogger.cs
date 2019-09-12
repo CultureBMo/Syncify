@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    internal interface ILogger
+    public interface ILogger
     {
         void Clear();
 

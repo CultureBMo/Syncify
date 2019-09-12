@@ -2,3 +2,7 @@
 /obj
 /.vs
 /packages
+/TestResults
+/Syncify.Tests/bin
+/Syncify.Tests/obj
+*.user
