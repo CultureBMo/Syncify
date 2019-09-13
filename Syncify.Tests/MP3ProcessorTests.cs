@@ -11,7 +11,7 @@
         {
             var actual = MP3Processor.RenamedAlready("01 TitleWithNumberPrefix");
 
-            Assert.AreEqual(true, actual);
+            Assert.IsTrue(actual);
         }
 
         [TestMethod]
@@ -19,7 +19,7 @@
         {
             var actual = MP3Processor.RenamedAlready("TitleWithoutNumberPrefix");
 
-            Assert.AreEqual(false, actual);
+            Assert.IsFalse(actual);
         }
 
         [TestMethod]
@@ -27,7 +27,7 @@
         {
             var actual = MP3Processor.RenamedAlready(string.Empty);
 
-            Assert.AreEqual(false, actual);
+            Assert.IsFalse(actual);
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@
         {
             var actual = MP3Processor.RenamedAlready(null);
 
-            Assert.AreEqual(false, actual);
+            Assert.IsFalse(actual);
         }
     }
 }
