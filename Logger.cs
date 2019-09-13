@@ -28,12 +28,12 @@
 
         public void LogWarning(string warningText)
         {
-            this.LogInfo(warningText);
+            this.LogInfo("Warning: " + warningText);
         }
 
         public void LogError(string errorText)
         {
-            this.LogInfo(errorText);
+            this.LogInfo("Error: " + errorText);
         }
 
         internal void WriteLogHeader(string caption)
