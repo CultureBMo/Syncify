@@ -44,7 +44,7 @@
             if (this.removePicturesCheckBox.Checked)
             {
                 logger.WriteLogHeader("Removing pictures...");
-                MP3Processor.RemoveImagesFromMP3Files(folder);
+                MP3Processor.RemoveImagesFromMP3Files(folder, logger);
             }
 
             stopwatch.Stop();
