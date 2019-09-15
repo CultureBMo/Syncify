@@ -2,33 +2,33 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
+    using System.IO.Abstractions;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
     public static class MP3Processor
     {
-        public static void RemoveImagesFromMP3Files(string directoryName, ILogger logger)
+        public static void RemoveImagesFromMP3Files(IDirectoryInfo directoryService, ILogger logger)
         {
-            RemoveImagesFromDirectory(directoryName, logger);
+            RemoveImagesFromDirectory(directoryService, logger);
 
-            RemoveImageFromIDTag(directoryName, logger);
+            RemoveImageFromIDTag(directoryService, logger);
         }
 
-        public static void RetitleMP3Files(string directoryName, ILogger logger)
+        public static void RetitleMP3Files(IDirectoryInfo directoryService, ILogger logger)
         {
             if (logger != null)
             {
                 try
                 {
-                    if (Directory.Exists(directoryName))
+                    if (directoryService.Exists)
                     {
-                        var mp3FilePaths = GetMP3FilesInDirectory(directoryName);
+                        var mp3FilePaths = GetMP3FilesInDirectory(directoryService);
 
                         foreach (var currentFile in mp3FilePaths)
                         {
-                            using (var file = TagLib.File.Create(currentFile))
+                            using (var file = TagLib.File.Create(currentFile.FullName))
                             {
                                 if (!RenamedAlready(file.Tag.Title))
                                 {
@@ -56,29 +56,29 @@
             }
         }
 
-        public static IEnumerable<string> GetJpgFilesInDirectory(string directoryName)
+        public static IEnumerable<IFileInfo> GetJpgFilesInDirectory(IDirectoryInfo directoryService)
         {
-            return Directory.EnumerateFiles(directoryName, "*.jpg", SearchOption.AllDirectories);
+            return directoryService.EnumerateFiles("*.jpg", System.IO.SearchOption.AllDirectories);
         }
 
-        public static IEnumerable<string> GetMP3FilesInDirectory(string directoryName)
+        public static IEnumerable<IFileInfo> GetMP3FilesInDirectory(IDirectoryInfo directoryService)
         {
-            return Directory.EnumerateFiles(directoryName, "*.mp3", SearchOption.AllDirectories);
+            return directoryService.EnumerateFiles("*.mp3", System.IO.SearchOption.AllDirectories);
         }
 
-        public static void RemoveImageFromIDTag(string directoryName, ILogger logger)
+        public static void RemoveImageFromIDTag(IDirectoryInfo directoryService, ILogger logger)
         {
             if (logger != null)
             {
                 try
                 {
-                    if (Directory.Exists(directoryName))
+                    if (directoryService.Exists)
                     {
-                        var mp3FilePaths = GetMP3FilesInDirectory(directoryName);
+                        var mp3FilePaths = GetMP3FilesInDirectory(directoryService);
 
                         foreach (var currentFile in mp3FilePaths)
                         {
-                            using (var file = TagLib.File.Create(currentFile))
+                            using (var file = TagLib.File.Create(currentFile.FullName))
                             {
                                 file.Tag.Pictures = Array.Empty<TagLib.IPicture>();
 
@@ -96,24 +96,24 @@
             }
         }
 
-        public static void RemoveImagesFromDirectory(string directoryName, ILogger logger)
+        public static void RemoveImagesFromDirectory(IDirectoryInfo directoryService, ILogger logger)
         {
             if (logger != null)
             {
                 try
                 {
-                    if (Directory.Exists(directoryName))
+                    if (directoryService.Exists)
                     {
-                        var jpgFiles = GetJpgFilesInDirectory(directoryName);
+                        var jpgFiles = GetJpgFilesInDirectory(directoryService);
 
                         if (jpgFiles.Any())
                         {
                             foreach (var jpg in jpgFiles)
                             {
-                                File.Delete(jpg);
+                                jpg.Delete();
                             }
 
-                            logger.LogWarning("Images removed from " + directoryName);
+                            logger.LogWarning("Images removed from " + directoryService.Name);
                         }
                     }
                 }

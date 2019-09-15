@@ -1,7 +1,6 @@
 ﻿namespace Syncify
 {
     using System;
-    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -35,16 +34,19 @@
             var stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
 
+            // use the System.IO.Abstraction library to pass in a Directory as an interface
+            System.IO.Abstractions.DirectoryInfoBase directoryService = new System.IO.DirectoryInfo(folder);
+
             if (this.retitleCheckBox.Checked)
             {
                 logger.WriteLogHeader("Retitling...");
-                MP3Processor.RetitleMP3Files(folder, logger);
+                MP3Processor.RetitleMP3Files(directoryService, logger);
             }
 
             if (this.removePicturesCheckBox.Checked)
             {
                 logger.WriteLogHeader("Removing pictures...");
-                MP3Processor.RemoveImagesFromMP3Files(folder, logger);
+                MP3Processor.RemoveImagesFromMP3Files(directoryService, logger);
             }
 
             stopwatch.Stop();
