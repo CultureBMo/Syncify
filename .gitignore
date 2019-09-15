@@ -6,3 +6,5 @@
 /Syncify.Tests/bin
 /Syncify.Tests/obj
 *.user
+/Syncify/bin/Debug
+/Syncify/obj/Debug
