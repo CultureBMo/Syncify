@@ -47,16 +47,17 @@
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\data\foo\abc.jpg", new MockFileData("") },
-                { @"c:\data\foo\def.jpg", new MockFileData("") },
-                { @"c:\data\foo\xyz.txt", new MockFileData("") }
+                { @"c:\data\abc.jpg", new MockFileData("") },
+                { @"c:\data\def.jpg", new MockFileData("") },
+                { @"c:\data\foo\ghi.jpg", new MockFileData("") },
+                { @"c:\data\xyz.txt", new MockFileData("") }
             });
 
             var directoryService = fileSystem.DirectoryInfo.FromDirectoryName(@"c:\data");
 
             var actual = MP3Processor.GetJpgFilesInDirectory(directoryService);
 
-            Assert.AreEqual(2, actual.Count());
+            Assert.AreEqual(3, actual.Count());
         }
 
         [TestMethod]
@@ -64,8 +65,9 @@
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
             {
-                { @"c:\data\foo\abc.mp3", new MockFileData("") },
-                { @"c:\data\foo\def.mp3", new MockFileData("") },
+                { @"c:\data\abc.mp3", new MockFileData("") },
+                { @"c:\data\def.mp3", new MockFileData("") },
+                { @"c:\data\foo\ghi.mp3", new MockFileData("") },
                 { @"c:\data\foo\xyz.txt", new MockFileData("") }
             });
 
@@ -73,7 +75,7 @@
 
             var actual = MP3Processor.GetMP3FilesInDirectory(directoryService);
 
-            Assert.AreEqual(2, actual.Count());
+            Assert.AreEqual(3, actual.Count());
         }
     }
 }
