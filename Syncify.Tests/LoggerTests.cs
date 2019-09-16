@@ -2,22 +2,22 @@
 {
     using System;
     using System.Windows.Forms;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
 
-    [TestClass]
+    [TestFixture]
     public class LoggerTests
     {
         Logger logger;
         TextBox textBox = new TextBox();        
         string message = "Test";
 
-        [TestInitialize]
+        [SetUp]
         public void Init()
         {
             this.logger = new Logger(textBox);
         }
 
-        [TestMethod]
+        [Test]
         public void LoggerClearsTextBox()
         {
             this.logger.LogInfo(this.message);
@@ -26,9 +26,10 @@
             Assert.AreEqual(string.Empty, textBox.Text);
         }
 
-        [TestMethod]
+        [Test]
         public void LogInfoWritesToTextBox()
         {
+            this.logger.Clear();
             this.logger.LogInfo(this.message);
 
             var expected = this.message + Environment.NewLine;
@@ -36,9 +37,10 @@
             Assert.AreEqual(expected, textBox.Text);
         }
 
-        [TestMethod]
+        [Test]
         public void LogWarningWritesToTextBox()
         {
+            this.logger.Clear();
             this.logger.LogWarning(this.message);
 
             var expected = "Warning: " + this.message + Environment.NewLine;
@@ -46,9 +48,10 @@
             Assert.AreEqual(expected, textBox.Text);
         }
 
-        [TestMethod]
+        [Test]
         public void LogErrorWritesToTextBox()
         {
+            this.logger.Clear();
             this.logger.LogError(this.message);
 
             var expected = "Error: " + this.message + Environment.NewLine;

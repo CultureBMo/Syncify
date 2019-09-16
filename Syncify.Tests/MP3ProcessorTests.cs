@@ -5,12 +5,12 @@
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using NUnit.Framework;
 
-    [TestClass]
+    [TestFixture]
     public class MP3ProcessorTests
     {
-        [TestMethod]
+        [Test]
         public void RenamedAlreadyReturnsTrueForTitleWithNumberPrefix()
         {
             var actual = MP3Processor.RenamedAlready("01 TitleWithNumberPrefix");
@@ -18,7 +18,7 @@
             Assert.IsTrue(actual);
         }
 
-        [TestMethod]
+        [Test]
         public void RenamedAlreadyReturnsFalseForTitleWithoutNumberPrefix()
         {
             var actual = MP3Processor.RenamedAlready("TitleWithoutNumberPrefix");
@@ -26,7 +26,7 @@
             Assert.IsFalse(actual);
         }
 
-        [TestMethod]
+        [Test]
         public void RenamedAlreadyReturnsFalseForEmptyTitle()
         {
             var actual = MP3Processor.RenamedAlready(string.Empty);
@@ -34,7 +34,7 @@
             Assert.IsFalse(actual);
         }
 
-        [TestMethod]
+        [Test]
         public void RenamedAlreadyReturnsFalseForNullTitle()
         {
             var actual = MP3Processor.RenamedAlready(null);
@@ -42,7 +42,7 @@
             Assert.IsFalse(actual);
         }
 
-        [TestMethod]
+        [Test]
         public void GetJpgFilesInDirectoryReturnsListOfJpgFiles()
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
@@ -60,7 +60,7 @@
             Assert.AreEqual(3, actual.Count());
         }
 
-        [TestMethod]
+        [Test]
         public void GetMP3FilesInDirectoryReturnsListOfMP3Files()
         {
             var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
