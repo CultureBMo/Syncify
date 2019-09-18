@@ -5,6 +5,7 @@
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
     using System.Linq;
+    using Moq;
     using NUnit.Framework;
 
     [TestFixture]
@@ -77,5 +78,41 @@
 
             Assert.AreEqual(3, actual.Count());
         }
+
+        [Test]
+        public void RemoveImagesFromDirectoryRemovesImages()
+        {
+            var fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
+            {
+                { @"c:\data\abc.jpg", new MockFileData("") },
+                { @"c:\data\def.jpg", new MockFileData("") },
+                { @"c:\data\foo\ghi.jpg", new MockFileData("") },
+                { @"c:\data\xyz.txt", new MockFileData("") }
+            });
+
+            var directoryService = fileSystem.DirectoryInfo.FromDirectoryName(@"c:\data");
+
+            var mockLogger = new Mock<ILogger>();
+
+            MP3Processor.RemoveImagesFromDirectory(directoryService, mockLogger.Object);
+
+            var jpgFiles = directoryService.EnumerateFiles("*.jpg", System.IO.SearchOption.AllDirectories);
+
+            Assert.AreEqual(0, jpgFiles.Count());
+        }
+
+        ////[Test]
+        ////public void Retitle_Retitles()
+        ////{
+        ////    var mockMP3File = new Mock<IMP3File>();
+        ////    mockMP3File.Setup(_ => _.Title).Returns("Title");
+        ////    mockMP3File.Setup(_ => _.Track).Returns(8);
+
+        ////    var mockLogger = new Mock<ILogger>();
+
+        ////    MP3Processor.Retitle(mockMP3File.Object, mockLogger.Object);
+
+        ////    Assert.AreEqual("08 Title", mockMP3File.Object.Title);
+        ////}
     }
 }
