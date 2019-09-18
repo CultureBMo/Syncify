@@ -9,16 +9,16 @@
 
     public static class MP3Processor
     {
-        public static void RemoveImagesFromMP3Files(IDirectoryInfo directoryService, ILogger logger)
+        public static void RemoveImagesFromMP3Files(IDirectoryInfo directoryService, IMP3Service mp3Service, ILogger logger)
         {
             RemoveImagesFromDirectory(directoryService, logger);
 
-            RemoveImageFromIDTag(directoryService, logger);
+            RemoveImageFromIDTag(directoryService, mp3Service, logger);
         }
 
-        public static void RetitleMP3Files(IDirectoryInfo directoryService, ILogger logger)
+        public static void RetitleMP3Files(IDirectoryInfo directoryService, IMP3Service mp3Service, ILogger logger)
         {
-            if (logger != null)
+            if (directoryService != null && mp3Service != null && logger != null)
             {
                 try
                 {
@@ -28,22 +28,15 @@
 
                         foreach (var currentFile in mp3FilePaths)
                         {
-                            using (var file = TagLib.File.Create(currentFile.FullName))
+                            using (var file = mp3Service.Create(currentFile.FullName))
                             {
-                                if (!RenamedAlready(file.Tag.Title))
+                                if (!RenamedAlready(file.Title))
                                 {
-                                    var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
-                                    var oldTitle = file.Tag.Title;
-
-                                    file.Tag.Title = newTitle;
-
-                                    file.Save();
-
-                                    logger.LogInfo(oldTitle + " retitled " + newTitle);
+                                    Retitle(file, logger);
                                 }
                                 else
                                 {
-                                    logger.LogWarning(file.Tag.Title + " could not be retitled");
+                                    logger.LogWarning(file.Title + " could not be retitled");
                                 }
                             }
                         }
@@ -56,6 +49,18 @@
             }
         }
 
+        internal static void Retitle(IMP3File file, ILogger logger)
+        {
+            var newTitle = file.Track.ToString("00") + " " + file.Title;
+            var oldTitle = file.Title;
+
+            file.Title = newTitle;
+
+            file.Save();
+
+            logger.LogInfo(oldTitle + " retitled " + newTitle);
+        }
+
         public static IEnumerable<IFileInfo> GetJpgFilesInDirectory(IDirectoryInfo directoryService)
         {
             return directoryService.EnumerateFiles("*.jpg", System.IO.SearchOption.AllDirectories);
@@ -66,9 +71,9 @@
             return directoryService.EnumerateFiles("*.mp3", System.IO.SearchOption.AllDirectories);
         }
 
-        public static void RemoveImageFromIDTag(IDirectoryInfo directoryService, ILogger logger)
+        public static void RemoveImageFromIDTag(IDirectoryInfo directoryService, IMP3Service mp3Service, ILogger logger)
         {
-            if (logger != null)
+            if (directoryService != null && mp3Service != null && logger != null)
             {
                 try
                 {
@@ -78,13 +83,13 @@
 
                         foreach (var currentFile in mp3FilePaths)
                         {
-                            using (var file = TagLib.File.Create(currentFile.FullName))
+                            using (var file = mp3Service.Create(currentFile.FullName))
                             {
-                                file.Tag.Pictures = Array.Empty<TagLib.IPicture>();
+                                file.ClearPictures();
 
                                 file.Save();
 
-                                logger.LogInfo("Image removed from " + file.Tag.Title);
+                                logger.LogInfo("Image removed from " + file.Title);
                             }
                         }
                     }
@@ -98,7 +103,7 @@
 
         public static void RemoveImagesFromDirectory(IDirectoryInfo directoryService, ILogger logger)
         {
-            if (logger != null)
+            if (directoryService != null && logger != null)
             {
                 try
                 {

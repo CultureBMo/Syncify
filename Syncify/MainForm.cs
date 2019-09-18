@@ -37,16 +37,18 @@
             // use the System.IO.Abstraction library to pass in a Directory as an interface
             System.IO.Abstractions.DirectoryInfoBase directoryService = new System.IO.DirectoryInfo(folder);
 
+            var mp3Service = new MP3Service();
+
             if (this.retitleCheckBox.Checked)
             {
                 logger.WriteLogHeader("Retitling...");
-                MP3Processor.RetitleMP3Files(directoryService, logger);
+                MP3Processor.RetitleMP3Files(directoryService, mp3Service, logger);
             }
 
             if (this.removePicturesCheckBox.Checked)
             {
                 logger.WriteLogHeader("Removing pictures...");
-                MP3Processor.RemoveImagesFromMP3Files(directoryService, logger);
+                MP3Processor.RemoveImagesFromMP3Files(directoryService, mp3Service, logger);
             }
 
             stopwatch.Stop();
