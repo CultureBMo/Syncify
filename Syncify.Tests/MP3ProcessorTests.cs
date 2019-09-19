@@ -101,18 +101,20 @@
             Assert.AreEqual(0, jpgFiles.Count());
         }
 
-        ////[Test]
-        ////public void Retitle_Retitles()
-        ////{
-        ////    var mockMP3File = new Mock<IMP3File>();
-        ////    mockMP3File.Setup(_ => _.Title).Returns("Title");
-        ////    mockMP3File.Setup(_ => _.Track).Returns(8);
+        [Test]
+        public void Retitle_Retitles()
+        {
+            var mockMP3File = new Mock<IMP3File>();
+            mockMP3File.SetupProperty(mp3 => mp3.Title);
+            mockMP3File.Object.Title = "Title";
+            mockMP3File.SetupProperty(mp3 => mp3.Track);
+            mockMP3File.Object.Track = 8;
 
-        ////    var mockLogger = new Mock<ILogger>();
+            var mockLogger = new Mock<ILogger>();
 
-        ////    MP3Processor.Retitle(mockMP3File.Object, mockLogger.Object);
+            MP3Processor.Retitle(mockMP3File.Object, mockLogger.Object);
 
-        ////    Assert.AreEqual("08 Title", mockMP3File.Object.Title);
-        ////}
+            Assert.AreEqual("08 Title", mockMP3File.Object.Title);
+        }
     }
 }

@@ -28,16 +28,16 @@
         {
             var folder = this.folderTextBox.Text;
 
+            // use the System.IO.Abstraction library to pass in a Directory as an interface
+            System.IO.Abstractions.DirectoryInfoBase directoryService = new System.IO.DirectoryInfo(folder);
+
+            var mp3Service = new MP3Service();
+
             var logger = new Logger(this.logTextBox);
             logger.Clear();
 
             var stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
-
-            // use the System.IO.Abstraction library to pass in a Directory as an interface
-            System.IO.Abstractions.DirectoryInfoBase directoryService = new System.IO.DirectoryInfo(folder);
-
-            var mp3Service = new MP3Service();
 
             if (this.retitleCheckBox.Checked)
             {
