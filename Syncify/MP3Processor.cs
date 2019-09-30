@@ -1,4 +1,6 @@
-﻿namespace Syncify
+﻿[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Syncify.Tests")]
+
+namespace Syncify
 {
     using System;
     using System.Collections.Generic;

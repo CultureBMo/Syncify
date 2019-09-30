@@ -44,6 +44,7 @@
 
         internal void WriteLogFooter(TimeSpan elapsed)
         {
+            this.LogInfo("-");
             this.LogInfo(string.Format("Time elapsed: {0}", elapsed));
             this.LogInfo("Copyright © CultureBMo 2019");
             this.LogInfo("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");

@@ -50,7 +50,7 @@
             // 
             // folderTextBox
             // 
-            this.folderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.folderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.folderTextBox.Location = new System.Drawing.Point(54, 12);
             this.folderTextBox.Name = "folderTextBox";
@@ -81,8 +81,8 @@
             // 
             // logTextBox
             // 
-            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logTextBox.Location = new System.Drawing.Point(12, 71);
             this.logTextBox.Multiline = true;
@@ -90,7 +90,6 @@
             this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.logTextBox.Size = new System.Drawing.Size(427, 229);
             this.logTextBox.TabIndex = 4;
-            this.logTextBox.Text = resources.GetString("logTextBox.Text");
             // 
             // retitle
             // 
@@ -128,7 +127,6 @@
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.folderTextBox);
             this.Controls.Add(this.folderLabel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Syncify";
             this.ResumeLayout(false);
@@ -148,4 +146,3 @@
         private System.Windows.Forms.CheckBox removePicturesCheckBox;
     }
 }
-

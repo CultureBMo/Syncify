@@ -1,8 +1,10 @@
 ﻿namespace Syncify
 {
     using System;
+    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using Microsoft.Extensions.Configuration;
 
     public partial class MainForm : Form
     {
@@ -10,10 +12,16 @@
         {
             this.InitializeComponent();
 
+            this.Icon = new System.Drawing.Icon(Directory.GetCurrentDirectory() + @"\1468086191_icon-71-document-file-mp3.ico");
+
             // get default values from config file
-            this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
-            this.retitleCheckBox.Checked = Properties.Settings.Default.Retitle;
-            this.removePicturesCheckBox.Checked = Properties.Settings.Default.RemovePictures;
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
+
+            this.folderTextBox.Text = config["settings:InitialPath"];
+            this.retitleCheckBox.Checked = config.GetValue<bool>("settings:Retitle");
+            this.removePicturesCheckBox.Checked = config.GetValue<bool>("settings:RemovePictures");
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
