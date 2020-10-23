@@ -111,9 +111,9 @@
             this.removePictures.CheckState = System.Windows.Forms.CheckState.Checked;
             this.removePictures.Location = new System.Drawing.Point(116, 46);
             this.removePictures.Name = "removePictures";
-            this.removePictures.Size = new System.Drawing.Size(104, 17);
+            this.removePictures.Size = new System.Drawing.Size(103, 17);
             this.removePictures.TabIndex = 6;
-            this.removePictures.Text = "RemovePictures";
+            this.removePictures.Text = "Remove Images";
             this.removePictures.UseVisualStyleBackColor = true;
             // 
             // MainForm
