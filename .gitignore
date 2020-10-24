@@ -1,4 +1,4 @@
-﻿/bin
+﻿/.vs
+/bin
 /obj
-/.vs
 /packages
