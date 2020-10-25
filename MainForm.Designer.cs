@@ -77,7 +77,7 @@
             this.retitleButton.TabIndex = 3;
             this.retitleButton.Text = "Go";
             this.retitleButton.UseVisualStyleBackColor = true;
-            this.retitleButton.Click += new System.EventHandler(this.RetitleButton_Click);
+            this.retitleButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
             // logTextBox
             // 

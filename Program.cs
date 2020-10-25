@@ -16,7 +16,15 @@
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            if (Properties.Settings.Default.DarkMode)
+            {
+                Application.Run(new DarkForm());
+            }
+            else
+            {
+                Application.Run(new MainForm());
+            }
         }
     }
 }

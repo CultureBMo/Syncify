@@ -5,9 +5,9 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    public partial class MainForm : Form
+    public partial class DarkForm : Form
     {
-        public MainForm()
+        public DarkForm()
         {
             this.InitializeComponent();
 
@@ -24,9 +24,9 @@
             }
         }
 
-        private void Log(string text)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
-            this.logTextBox.AppendText(text + Environment.NewLine);
+            Application.Exit();
         }
 
         private void GoButton_Click(object sender, EventArgs e)
@@ -40,7 +40,6 @@
             var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
 
             var jpgFiles = Directory.EnumerateFiles(folder, "*.jpg", SearchOption.AllDirectories);
-
 
             foreach (var currentFile in mp3Files)
             {
@@ -80,6 +79,11 @@
 
             stopwatch.Stop();
             this.WriteLogFooter(stopwatch.Elapsed);
+        }
+
+        private void Log(string text)
+        {
+            this.logTextBox.AppendText(text + Environment.NewLine);
         }
 
         private bool RenamedAlready(string title)
