@@ -37,14 +37,13 @@
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.retitle = new System.Windows.Forms.CheckBox();
             this.removePictures = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.leftPanel = new System.Windows.Forms.Panel();
             this.mp3Logo = new System.Windows.Forms.PictureBox();
             this.syncifyLabel = new System.Windows.Forms.Label();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.topPanel = new System.Windows.Forms.Panel();
+            this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mp3Logo)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // folderLabel
@@ -98,8 +97,8 @@
             // 
             // logTextBox
             // 
-            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -116,9 +115,9 @@
             // retitle
             // 
             this.retitle.AutoSize = true;
+            this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.retitle.Checked = true;
             this.retitle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.retitle.Location = new System.Drawing.Point(88, 73);
             this.retitle.Name = "retitle";
             this.retitle.Size = new System.Drawing.Size(73, 25);
@@ -139,17 +138,16 @@
             this.removePictures.Text = "Remove Images";
             this.removePictures.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // leftPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel1.Controls.Add(this.mp3Logo);
-            this.panel1.Controls.Add(this.syncifyLabel);
-            this.panel1.Controls.Add(this.exitButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 450);
-            this.panel1.TabIndex = 2;
+            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.leftPanel.Controls.Add(this.mp3Logo);
+            this.leftPanel.Controls.Add(this.syncifyLabel);
+            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.leftPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Size = new System.Drawing.Size(200, 450);
+            this.leftPanel.TabIndex = 2;
             // 
             // mp3Logo
             // 
@@ -171,34 +169,20 @@
             this.syncifyLabel.TabIndex = 7;
             this.syncifyLabel.Text = "Syncify";
             // 
-            // exitButton
+            // topPanel
             // 
-            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.exitButton.FlatAppearance.BorderSize = 0;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Location = new System.Drawing.Point(58, 405);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 33);
-            this.exitButton.TabIndex = 8;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel2.Controls.Add(this.folderLabel);
-            this.panel2.Controls.Add(this.removePictures);
-            this.panel2.Controls.Add(this.retitle);
-            this.panel2.Controls.Add(this.goButton);
-            this.panel2.Controls.Add(this.folderTextBox);
-            this.panel2.Controls.Add(this.browseButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(600, 128);
-            this.panel2.TabIndex = 3;            
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.topPanel.Controls.Add(this.folderLabel);
+            this.topPanel.Controls.Add(this.removePictures);
+            this.topPanel.Controls.Add(this.retitle);
+            this.topPanel.Controls.Add(this.goButton);
+            this.topPanel.Controls.Add(this.folderTextBox);
+            this.topPanel.Controls.Add(this.browseButton);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(200, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(600, 128);
+            this.topPanel.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -207,19 +191,19 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.logTextBox);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.topPanel);
+            this.Controls.Add(this.leftPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Syncify";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.leftPanel.ResumeLayout(false);
+            this.leftPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mp3Logo)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,11 +219,10 @@
         private System.Windows.Forms.TextBox logTextBox;
         private System.Windows.Forms.CheckBox retitle;
         private System.Windows.Forms.CheckBox removePictures;
-        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label syncifyLabel;        
         private System.Windows.Forms.PictureBox mp3Logo;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel leftPanel;
+        private System.Windows.Forms.Panel topPanel;
     }
 }
 
