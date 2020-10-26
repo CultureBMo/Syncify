@@ -1,10 +1,10 @@
 ﻿namespace Syncify
 {
-    using Microsoft.Win32;
     using System;
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using Microsoft.Win32;
 
     public partial class MainForm : Form
     {
@@ -12,9 +12,9 @@
         {
             this.InitializeComponent();
 
-            if (!IsLightTheme())
+            if (!this.IsLightTheme())
             {
-                SetDarkMode();
+                this.SetDarkMode();
             }
 
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
@@ -28,11 +28,6 @@
             {
                 this.folderTextBox.Text = this.folderBrowserDialog.SelectedPath;
             }
-        }
-
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void GoButton_Click(object sender, EventArgs e)
