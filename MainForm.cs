@@ -11,6 +11,15 @@
         {
             this.InitializeComponent();
 
+            //https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
+            ////var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+            ////var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
+
+            if (Properties.Settings.Default.DarkMode)
+            {
+                NativeMethods.UseImmersiveDarkMode(this.Handle, true);
+            }
+
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
             this.retitle.Checked = Properties.Settings.Default.Retitle;
             this.removePictures.Checked = Properties.Settings.Default.RemovePictures;
@@ -24,9 +33,9 @@
             }
         }
 
-        private void Log(string text)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
-            this.logTextBox.AppendText(text + Environment.NewLine);
+            Application.Exit();
         }
 
         private void GoButton_Click(object sender, EventArgs e)
@@ -80,6 +89,11 @@
 
             stopwatch.Stop();
             this.WriteLogFooter(stopwatch.Elapsed);
+        }
+
+        private void Log(string text)
+        {
+            this.logTextBox.AppendText(text + Environment.NewLine);
         }
 
         private bool RenamedAlready(string title)

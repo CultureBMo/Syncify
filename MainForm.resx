@@ -117,15 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="mp3Logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAABDpJREFUeF7tW7tuE0EUNaJBvKmpAQsoEPAB9BFJgO/gQ6JgnDhRpFTpU0ACfABf
+        QIVEoAwUASQeShApkMy5ozOr8d27zjjsYyz2SEf23IfvY8czs+uk06JFixYtWoxiMBh0wa1+v7+P12GZ
+        ZIjO8vLyY75NC0iyu7S09EMnXhYZpoPm/sF4hsN0gKS2woTLJsNInKHMMPAWRWmgimkfkmFcA8hPvV7v
+        MsXNI0isEjKMjvNmdXX1LFXNQiVWOhkmFweL4svNzc2TVDcHnVjZZJiiOAOqm4NKqHQyTGGcxrdHK6ky
+        yTCFcRrfHnVCZZNhxsZpdHu0EiqTDBMTp5nt0UikVDJMbJz6t0cjiVLpC8Jx+7Ol16x9e7SSKJMo6D7j
+        zINfQt0Y1rc9qsClE4vbO/Aiw6UHK+kKuIOZMLewsHCOYdOBkWwSZHrVwwqeAple9bCCp0CmVz2s4CmQ
+        6VUPK/iEPAR7Kysrtzc2Nk7xY6cHqpiJiJV9FwedG/yo6YRVWAyxt//2xaMR1+UEB9kvy7YhHoAvwK4r
+        tAiBw0REwU/EX4rH+KfWp0I+8S5ugnaIpXznxR8BXln6lIiLtO2KtWA5xNAveIlN+yIeuGItGMZRpHvO
+        n2KRv9Y6kVGd+XGYg9xF4srNwWbH23pC/havM+vr66dp3llcXDyDWTkr9x7aXkizPCzjGNK9sAFI5p7W
+        iYzqIxvgITdSsMuaIMWD56nOAU25YDWB6jy0YSzpXtgAAcbhLMiuvsDLObTykFvnedFxJni5e36IZj7C
+        +6+BPLOXmRDIHUVuQhvGku5jGxDOgvDqC7S9H4eUhyiik7tIL/PTHu/D4kfs5eujdSI3oQ1jSffCBviC
+        IZNZ4K5+2ARt78eKe6ILG3AEnb2sB1onchPaMJZ0L2wA3mdFh82QV4FhP/I54B78ZqmTp0larznWXuQm
+        tGEs6Z7zp9jJwysu77U+HBdhbW3tEqb2e2+vSbMMsmha9lTnoQ1jSfexDQDDK+4WRA7HNmA4HJ6QlR76
+        h+AHb2uRLhmS2QW03JPqXANCm2MyrV1Ayz2prqIB2S6QyiI4Ivek+tgNkOJobz1id7tAEtuglntSnek5
+        jM4Da4P7nQFX+wHGYROyXUAdnBxFbkIbxpLutTdAFjhZ6OiWgz46e1KdhzaMJd1rb4BQmiBXW6Y63d1h
+        SWZF0ZZJszws4xhO0+0wctx3xVqwHGKI79kd+stjJ9MmFSLX565YC5ZDDPGhT+lf6R9a/itx9b/h63LV
+        FWvBcorkIQq/yc/ooiHbeJUHkZZt7ZRpj9dnyPGKK7QI2nFCfvRNmFoYRU1K+WGkj2l2N3xENTVQxSRD
+        plc9rOApkOlVDyt4CmR61cMKngKZXvVI9CRX/ENG2UCwFE9yW0yveiBYaie575iV15hePUBQd5Jr+Osg
+        p0j5x616i2/RosV/hE7nL8jM0BuZSAz2AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="logTextBox.Text" xml:space="preserve">
     <value>This application adds the ID3 Track number to the beginning of Title for MP3 files. This allows Ford's Sync audio system to play them in the correct order.
 
-The open source library TagLib# is used to interact with MP3 files.</value>
+The open source library TagLib# is used to interact with MP3 files.
+</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <metadata name="folderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAEBAAAAEAIABoBAAAZgAAAAAAAAABACAAxg8AAM4EAAAwMAAAAQAgAKglAACUFAAAICAAAAEA
