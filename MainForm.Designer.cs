@@ -57,9 +57,8 @@
             // 
             // folderTextBox
             // 
-            this.folderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.folderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.folderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.folderTextBox.Location = new System.Drawing.Point(66, 31);
             this.folderTextBox.Name = "folderTextBox";
             this.folderTextBox.Size = new System.Drawing.Size(428, 22);
@@ -69,8 +68,6 @@
             // browseButton
             // 
             this.browseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseButton.FlatAppearance.BorderSize = 0;
-            this.browseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.browseButton.Location = new System.Drawing.Point(513, 25);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 33);
@@ -82,8 +79,6 @@
             // goButton
             // 
             this.goButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.goButton.FlatAppearance.BorderSize = 0;
-            this.goButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goButton.Location = new System.Drawing.Point(513, 68);
             this.goButton.Name = "goButton";
             this.goButton.Size = new System.Drawing.Size(75, 33);
@@ -94,10 +89,9 @@
             // 
             // logTextBox
             // 
-            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logTextBox.Location = new System.Drawing.Point(210, 134);
             this.logTextBox.Multiline = true;
@@ -208,7 +202,7 @@
         private System.Windows.Forms.TextBox logTextBox;
         private System.Windows.Forms.CheckBox retitle;
         private System.Windows.Forms.CheckBox removePictures;
-        private System.Windows.Forms.Label syncifyLabel;        
+        private System.Windows.Forms.Label syncifyLabel;
         private System.Windows.Forms.PictureBox mp3Logo;
         private System.Windows.Forms.Panel leftPanel;
         private System.Windows.Forms.Panel topPanel;

@@ -124,13 +124,19 @@
             NativeMethods.UseImmersiveDarkMode(this.Handle, true);
 
             this.folderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.folderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.folderTextBox.ForeColor = System.Drawing.Color.White;
 
             this.browseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.browseButton.FlatAppearance.BorderSize = 0;
+            this.browseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 
             this.goButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.goButton.FlatAppearance.BorderSize = 0;
+            this.goButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 
             this.logTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logTextBox.ForeColor = System.Drawing.Color.White;
 
             this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
