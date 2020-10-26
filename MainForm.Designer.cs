@@ -58,10 +58,8 @@
             // folderTextBox
             // 
             this.folderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.folderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            | System.Windows.Forms.AnchorStyles.Right)));            
             this.folderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.folderTextBox.ForeColor = System.Drawing.Color.White;
             this.folderTextBox.Location = new System.Drawing.Point(66, 31);
             this.folderTextBox.Name = "folderTextBox";
             this.folderTextBox.Size = new System.Drawing.Size(428, 22);
@@ -69,8 +67,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.browseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));            
             this.browseButton.FlatAppearance.BorderSize = 0;
             this.browseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.browseButton.Location = new System.Drawing.Point(513, 25);
@@ -78,13 +75,12 @@
             this.browseButton.Size = new System.Drawing.Size(75, 33);
             this.browseButton.TabIndex = 2;
             this.browseButton.Text = "Browse";
-            this.browseButton.UseVisualStyleBackColor = false;
+            this.browseButton.UseVisualStyleBackColor = true;
             this.browseButton.Click += new System.EventHandler(this.BrowseButton_Click);
             // 
             // goButton
             // 
-            this.goButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.goButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.goButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));            
             this.goButton.FlatAppearance.BorderSize = 0;
             this.goButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goButton.Location = new System.Drawing.Point(513, 68);
@@ -92,18 +88,16 @@
             this.goButton.Size = new System.Drawing.Size(75, 33);
             this.goButton.TabIndex = 3;
             this.goButton.Text = "Go";
-            this.goButton.UseVisualStyleBackColor = false;
+            this.goButton.UseVisualStyleBackColor = true;
             this.goButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
             // logTextBox
             // 
             this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.logTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            | System.Windows.Forms.AnchorStyles.Right)));            
             this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.logTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logTextBox.ForeColor = System.Drawing.Color.White;
+            this.logTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));            
             this.logTextBox.Location = new System.Drawing.Point(210, 134);
             this.logTextBox.Multiline = true;
             this.logTextBox.Name = "logTextBox";
@@ -115,7 +109,6 @@
             // retitle
             // 
             this.retitle.AutoSize = true;
-            this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.retitle.Checked = true;
             this.retitle.CheckState = System.Windows.Forms.CheckState.Checked;
             this.retitle.Location = new System.Drawing.Point(88, 73);
@@ -123,12 +116,11 @@
             this.retitle.Size = new System.Drawing.Size(73, 25);
             this.retitle.TabIndex = 5;
             this.retitle.Text = "Retitle";
-            this.retitle.UseVisualStyleBackColor = false;
+            this.retitle.UseVisualStyleBackColor = true;
             // 
             // removePictures
             // 
             this.removePictures.AutoSize = true;
-            this.removePictures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.removePictures.Checked = true;
             this.removePictures.CheckState = System.Windows.Forms.CheckState.Checked;
             this.removePictures.Location = new System.Drawing.Point(182, 73);
@@ -136,11 +128,10 @@
             this.removePictures.Size = new System.Drawing.Size(140, 25);
             this.removePictures.TabIndex = 6;
             this.removePictures.Text = "Remove Images";
-            this.removePictures.UseVisualStyleBackColor = false;
+            this.removePictures.UseVisualStyleBackColor = true;
             // 
             // leftPanel
             // 
-            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.leftPanel.Controls.Add(this.mp3Logo);
             this.leftPanel.Controls.Add(this.syncifyLabel);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -171,7 +162,6 @@
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.topPanel.Controls.Add(this.folderLabel);
             this.topPanel.Controls.Add(this.removePictures);
             this.topPanel.Controls.Add(this.retitle);
@@ -188,13 +178,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.leftPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";

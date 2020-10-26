@@ -1,5 +1,6 @@
 ﻿namespace Syncify
 {
+    using Microsoft.Win32;
     using System;
     using System.IO;
     using System.Linq;
@@ -11,13 +12,9 @@
         {
             this.InitializeComponent();
 
-            //https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
-            ////var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
-            ////var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
-
-            if (Properties.Settings.Default.DarkMode)
+            if (!IsLightTheme())
             {
-                NativeMethods.UseImmersiveDarkMode(this.Handle, true);
+                SetDarkMode();
             }
 
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
@@ -91,6 +88,22 @@
             this.WriteLogFooter(stopwatch.Elapsed);
         }
 
+        private bool IsLightTheme()
+        {
+            // https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
+            var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+            var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
+
+            if (appsUseLightTheme is null)
+            {
+                return true;
+            }
+            else
+            {
+                return Convert.ToBoolean(appsUseLightTheme);
+            }
+        }
+
         private void Log(string text)
         {
             this.logTextBox.AppendText(text + Environment.NewLine);
@@ -104,6 +117,33 @@
             }
 
             return false;
+        }
+
+        private void SetDarkMode()
+        {
+            NativeMethods.UseImmersiveDarkMode(this.Handle, true);
+
+            this.folderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.folderTextBox.ForeColor = System.Drawing.Color.White;
+
+            this.browseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+
+            this.goButton.BackColor = System.Drawing.Color.DodgerBlue;
+
+            this.logTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.logTextBox.ForeColor = System.Drawing.Color.White;
+
+            this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+
+            this.removePictures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+
+            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+
+            this.ForeColor = System.Drawing.Color.White;
         }
 
         private void WriteLogHeader(string caption)
