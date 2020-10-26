@@ -11,6 +11,10 @@
         {
             this.InitializeComponent();
 
+            //https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
+            ////var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+            ////var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
+
             NativeMethods.UseImmersiveDarkMode(this.Handle, true);
 
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;

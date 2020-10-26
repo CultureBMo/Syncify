@@ -47,6 +47,15 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // folderLabel
+            // 
+            this.folderLabel.AutoSize = true;
+            this.folderLabel.Location = new System.Drawing.Point(6, 31);
+            this.folderLabel.Name = "folderLabel";
+            this.folderLabel.Size = new System.Drawing.Size(54, 21);
+            this.folderLabel.TabIndex = 0;
+            this.folderLabel.Text = "Folder";
+            // 
             // folderTextBox
             // 
             this.folderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -57,8 +66,7 @@
             this.folderTextBox.Location = new System.Drawing.Point(66, 31);
             this.folderTextBox.Name = "folderTextBox";
             this.folderTextBox.Size = new System.Drawing.Size(428, 22);
-            this.folderTextBox.TabIndex = 0;
-            this.folderTextBox.Text = "C:\\";
+            this.folderTextBox.TabIndex = 1;
             // 
             // browseButton
             // 
@@ -69,10 +77,62 @@
             this.browseButton.Location = new System.Drawing.Point(513, 25);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 33);
-            this.browseButton.TabIndex = 1;
+            this.browseButton.TabIndex = 2;
             this.browseButton.Text = "Browse";
             this.browseButton.UseVisualStyleBackColor = false;
             this.browseButton.Click += new System.EventHandler(this.BrowseButton_Click);
+            // 
+            // goButton
+            // 
+            this.goButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.goButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.goButton.FlatAppearance.BorderSize = 0;
+            this.goButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.goButton.Location = new System.Drawing.Point(513, 68);
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(75, 33);
+            this.goButton.TabIndex = 3;
+            this.goButton.Text = "Go";
+            this.goButton.UseVisualStyleBackColor = false;
+            this.goButton.Click += new System.EventHandler(this.GoButton_Click);
+            // 
+            // logTextBox
+            // 
+            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.logTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logTextBox.ForeColor = System.Drawing.Color.White;
+            this.logTextBox.Location = new System.Drawing.Point(210, 134);
+            this.logTextBox.Multiline = true;
+            this.logTextBox.Name = "logTextBox";
+            this.logTextBox.Size = new System.Drawing.Size(577, 304);
+            this.logTextBox.TabIndex = 4;
+            this.logTextBox.Text = resources.GetString("logTextBox.Text");
+            // 
+            // retitle
+            // 
+            this.retitle.AutoSize = true;
+            this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.retitle.Location = new System.Drawing.Point(88, 73);
+            this.retitle.Name = "retitle";
+            this.retitle.Size = new System.Drawing.Size(73, 25);
+            this.retitle.TabIndex = 5;
+            this.retitle.Text = "Retitle";
+            this.retitle.UseVisualStyleBackColor = false;
+            // 
+            // removePictures
+            // 
+            this.removePictures.AutoSize = true;
+            this.removePictures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.removePictures.Location = new System.Drawing.Point(182, 73);
+            this.removePictures.Name = "removePictures";
+            this.removePictures.Size = new System.Drawing.Size(140, 25);
+            this.removePictures.TabIndex = 6;
+            this.removePictures.Text = "Remove Images";
+            this.removePictures.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -103,7 +163,7 @@
             this.syncifyLabel.Location = new System.Drawing.Point(81, 47);
             this.syncifyLabel.Name = "syncifyLabel";
             this.syncifyLabel.Size = new System.Drawing.Size(90, 32);
-            this.syncifyLabel.TabIndex = 5;
+            this.syncifyLabel.TabIndex = 7;
             this.syncifyLabel.Text = "Syncify";
             // 
             // exitButton
@@ -115,7 +175,7 @@
             this.exitButton.Location = new System.Drawing.Point(58, 405);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 33);
-            this.exitButton.TabIndex = 5;
+            this.exitButton.TabIndex = 8;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
@@ -133,68 +193,7 @@
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 128);
-            this.panel2.TabIndex = 3;
-            // 
-            // folderLabel
-            // 
-            this.folderLabel.AutoSize = true;
-            this.folderLabel.Location = new System.Drawing.Point(6, 31);
-            this.folderLabel.Name = "folderLabel";
-            this.folderLabel.Size = new System.Drawing.Size(54, 21);
-            this.folderLabel.TabIndex = 5;
-            this.folderLabel.Text = "Folder";
-            // 
-            // removePictures
-            // 
-            this.removePictures.AutoSize = true;
-            this.removePictures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.removePictures.Location = new System.Drawing.Point(182, 73);
-            this.removePictures.Name = "removePictures";
-            this.removePictures.Size = new System.Drawing.Size(140, 25);
-            this.removePictures.TabIndex = 4;
-            this.removePictures.Text = "Remove Images";
-            this.removePictures.UseVisualStyleBackColor = false;
-            // 
-            // retitle
-            // 
-            this.retitle.AutoSize = true;
-            this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.retitle.Location = new System.Drawing.Point(88, 73);
-            this.retitle.Name = "retitle";
-            this.retitle.Size = new System.Drawing.Size(73, 25);
-            this.retitle.TabIndex = 3;
-            this.retitle.Text = "Retitle";
-            this.retitle.UseVisualStyleBackColor = false;
-            // 
-            // goButton
-            // 
-            this.goButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.goButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.goButton.FlatAppearance.BorderSize = 0;
-            this.goButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.goButton.Location = new System.Drawing.Point(513, 68);
-            this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(75, 33);
-            this.goButton.TabIndex = 2;
-            this.goButton.Text = "Go";
-            this.goButton.UseVisualStyleBackColor = false;
-            this.goButton.Click += new System.EventHandler(this.GoButton_Click);
-            // 
-            // logTextBox
-            // 
-            this.logTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.logTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.logTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logTextBox.ForeColor = System.Drawing.Color.White;
-            this.logTextBox.Location = new System.Drawing.Point(210, 134);
-            this.logTextBox.Multiline = true;
-            this.logTextBox.Name = "logTextBox";
-            this.logTextBox.Size = new System.Drawing.Size(577, 304);
-            this.logTextBox.TabIndex = 4;
-            this.logTextBox.Text = resources.GetString("logTextBox.Text");
+            this.panel2.TabIndex = 3;            
             // 
             // DarkForm
             // 
@@ -223,18 +222,18 @@
 
         #endregion
 
+        private System.Windows.Forms.Label folderLabel;
         private System.Windows.Forms.TextBox folderTextBox;
         private System.Windows.Forms.Button browseButton;
+        private System.Windows.Forms.Button goButton;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.TextBox logTextBox;
+        private System.Windows.Forms.CheckBox retitle;
+        private System.Windows.Forms.CheckBox removePictures;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Label syncifyLabel;        
+        private System.Windows.Forms.PictureBox mp3Logo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox retitle;
-        private System.Windows.Forms.Button goButton;
-        private System.Windows.Forms.CheckBox removePictures;
-        private System.Windows.Forms.TextBox logTextBox;
-        private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Label syncifyLabel;
-        private System.Windows.Forms.Label folderLabel;
-        private System.Windows.Forms.PictureBox mp3Logo;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
