@@ -11,6 +11,8 @@
         {
             this.InitializeComponent();
 
+            NativeMethods.UseImmersiveDarkMode(this.Handle, true);
+
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
             this.retitle.Checked = Properties.Settings.Default.Retitle;
             this.removePictures.Checked = Properties.Settings.Default.RemovePictures;
