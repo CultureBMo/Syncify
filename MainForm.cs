@@ -12,7 +12,7 @@
         {
             this.InitializeComponent();
 
-            if (!this.IsLightTheme())
+            if (!this.UsingLightTheme())
             {
                 this.SetDarkMode();
             }
@@ -83,22 +83,6 @@
             this.WriteLogFooter(stopwatch.Elapsed);
         }
 
-        private bool IsLightTheme()
-        {
-            // https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
-            var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
-            var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
-
-            if (appsUseLightTheme is null)
-            {
-                return true;
-            }
-            else
-            {
-                return Convert.ToBoolean(appsUseLightTheme);
-            }
-        }
-
         private void Log(string text)
         {
             this.logTextBox.AppendText(text + Environment.NewLine);
@@ -145,6 +129,22 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
 
             this.ForeColor = System.Drawing.Color.White;
+        }
+
+        private bool UsingLightTheme()
+        {
+            // https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
+            var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+            var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
+
+            if (appsUseLightTheme is null)
+            {
+                return true;
+            }
+            else
+            {
+                return Convert.ToBoolean(appsUseLightTheme);
+            }
         }
 
         private void WriteLogHeader(string caption)
