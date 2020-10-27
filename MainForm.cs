@@ -1,6 +1,7 @@
 ﻿namespace Syncify
 {
     using System;
+    using System.Drawing;
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
@@ -100,35 +101,43 @@
 
         private void SetDarkMode()
         {
+            // set dark title bar
             NativeMethods.UseImmersiveDarkMode(this.Handle, true);
 
-            this.folderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.folderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.folderTextBox.ForeColor = System.Drawing.Color.White;
+            // styles for dark mode
+            var backgroundColor = Color.FromArgb(12, 12, 12);
+            var foregroundColor = Color.White;
+            var panelColor = Color.FromArgb(28, 28, 28);
+            var buttonColor = Color.FromArgb(44, 44, 44);
+            var actionButtonColor = Color.DodgerBlue;
+            var buttonBorderSize = 0;
+            var buttonFlatStyle = FlatStyle.Flat;
+            var textboxBorderStyle = BorderStyle.None;
 
-            this.browseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.browseButton.FlatAppearance.BorderSize = 0;
-            this.browseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            // properties taken from the form designer
+            this.folderTextBox.BackColor = backgroundColor;
+            this.folderTextBox.BorderStyle = textboxBorderStyle;
+            this.folderTextBox.ForeColor = foregroundColor;
 
-            this.goButton.BackColor = System.Drawing.Color.DodgerBlue;
-            this.goButton.FlatAppearance.BorderSize = 0;
-            this.goButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.browseButton.BackColor = buttonColor;
+            this.browseButton.FlatAppearance.BorderSize = buttonBorderSize;
+            this.browseButton.FlatStyle = buttonFlatStyle;
 
-            this.logTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.logTextBox.ForeColor = System.Drawing.Color.White;
+            this.goButton.BackColor = actionButtonColor;
+            this.goButton.FlatAppearance.BorderSize = buttonBorderSize;
+            this.goButton.FlatStyle = buttonFlatStyle;
 
-            this.retitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.logTextBox.BackColor = backgroundColor;
+            this.logTextBox.BorderStyle = textboxBorderStyle;
+            this.logTextBox.ForeColor = foregroundColor;
 
-            this.removePictures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.retitle.BackColor = panelColor;
+            this.removePictures.BackColor = panelColor;
+            this.leftPanel.BackColor = panelColor;
+            this.topPanel.BackColor = panelColor;
 
-            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-
-            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-
-            this.ForeColor = System.Drawing.Color.White;
+            this.BackColor = backgroundColor;
+            this.ForeColor = foregroundColor;
         }
 
         private bool UsingLightTheme()
