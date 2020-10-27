@@ -142,7 +142,7 @@
             this.mp3Logo.Name = "mp3Logo";
             this.mp3Logo.Size = new System.Drawing.Size(64, 64);
             this.mp3Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mp3Logo.TabIndex = 6;
+            this.mp3Logo.TabIndex = 7;
             this.mp3Logo.TabStop = false;
             // 
             // syncifyLabel
@@ -152,7 +152,7 @@
             this.syncifyLabel.Location = new System.Drawing.Point(81, 47);
             this.syncifyLabel.Name = "syncifyLabel";
             this.syncifyLabel.Size = new System.Drawing.Size(90, 32);
-            this.syncifyLabel.TabIndex = 7;
+            this.syncifyLabel.TabIndex = 8;
             this.syncifyLabel.Text = "Syncify";
             // 
             // topPanel
@@ -167,7 +167,7 @@
             this.topPanel.Location = new System.Drawing.Point(200, 0);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(600, 128);
-            this.topPanel.TabIndex = 3;
+            this.topPanel.TabIndex = 9;
             // 
             // MainForm
             // 
