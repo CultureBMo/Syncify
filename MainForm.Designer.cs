@@ -36,7 +36,7 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.retitle = new System.Windows.Forms.CheckBox();
-            this.removePictures = new System.Windows.Forms.CheckBox();
+            this.removeImages = new System.Windows.Forms.CheckBox();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.mp3Logo = new System.Windows.Forms.PictureBox();
             this.syncifyLabel = new System.Windows.Forms.Label();
@@ -113,17 +113,17 @@
             this.retitle.Text = "Retitle";
             this.retitle.UseVisualStyleBackColor = true;
             // 
-            // removePictures
+            // removeImages
             // 
-            this.removePictures.AutoSize = true;
-            this.removePictures.Checked = true;
-            this.removePictures.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.removePictures.Location = new System.Drawing.Point(182, 73);
-            this.removePictures.Name = "removePictures";
-            this.removePictures.Size = new System.Drawing.Size(140, 25);
-            this.removePictures.TabIndex = 6;
-            this.removePictures.Text = "Remove Images";
-            this.removePictures.UseVisualStyleBackColor = true;
+            this.removeImages.AutoSize = true;
+            this.removeImages.Checked = true;
+            this.removeImages.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.removeImages.Location = new System.Drawing.Point(182, 73);
+            this.removeImages.Name = "removeImages";
+            this.removeImages.Size = new System.Drawing.Size(171, 32);
+            this.removeImages.TabIndex = 3;
+            this.removeImages.Text = "Remove Images";
+            this.removeImages.UseVisualStyleBackColor = true;
             // 
             // leftPanel
             // 
@@ -142,7 +142,7 @@
             this.mp3Logo.Name = "mp3Logo";
             this.mp3Logo.Size = new System.Drawing.Size(64, 64);
             this.mp3Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mp3Logo.TabIndex = 7;
+            this.mp3Logo.TabIndex = 6;
             this.mp3Logo.TabStop = false;
             // 
             // syncifyLabel
@@ -152,13 +152,13 @@
             this.syncifyLabel.Location = new System.Drawing.Point(81, 47);
             this.syncifyLabel.Name = "syncifyLabel";
             this.syncifyLabel.Size = new System.Drawing.Size(90, 32);
-            this.syncifyLabel.TabIndex = 8;
+            this.syncifyLabel.TabIndex = 7;
             this.syncifyLabel.Text = "Syncify";
             // 
             // topPanel
             // 
             this.topPanel.Controls.Add(this.folderLabel);
-            this.topPanel.Controls.Add(this.removePictures);
+            this.topPanel.Controls.Add(this.removeImages);
             this.topPanel.Controls.Add(this.retitle);
             this.topPanel.Controls.Add(this.goButton);
             this.topPanel.Controls.Add(this.folderTextBox);
@@ -167,7 +167,7 @@
             this.topPanel.Location = new System.Drawing.Point(200, 0);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(600, 128);
-            this.topPanel.TabIndex = 9;
+            this.topPanel.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -201,7 +201,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.TextBox logTextBox;
         private System.Windows.Forms.CheckBox retitle;
-        private System.Windows.Forms.CheckBox removePictures;
+        private System.Windows.Forms.CheckBox removeImages;
         private System.Windows.Forms.Label syncifyLabel;
         private System.Windows.Forms.PictureBox mp3Logo;
         private System.Windows.Forms.Panel leftPanel;

@@ -50,12 +50,12 @@ namespace Syncify.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool RemovePictures {
+        public bool RemoveImages {
             get {
-                return ((bool)(this["RemovePictures"]));
+                return ((bool)(this["RemoveImages"]));
             }
             set {
-                this["RemovePictures"] = value;
+                this["RemoveImages"] = value;
             }
         }
     }

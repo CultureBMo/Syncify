@@ -21,7 +21,7 @@
 
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
             this.retitle.Checked = Properties.Settings.Default.Retitle;
-            this.removePictures.Checked = Properties.Settings.Default.RemovePictures;
+            this.removeImages.Checked = Properties.Settings.Default.RemoveImages;
         }
 
         private static bool RenamedAlready(string title)
@@ -83,8 +83,8 @@
                     this.Log(oldTitle + " renamed " + newTitle);
                 }
 
-                // remove pictures in the folder that may be associated
-                if (this.removePictures.Checked)
+                // remove images in the folder that may be associated
+                if (this.removeImages.Checked)
                 {
                     if (jpgFiles.Any())
                     {
@@ -147,7 +147,7 @@
             this.logTextBox.ForeColor = foregroundColor;
 
             this.retitle.BackColor = panelColor;
-            this.removePictures.BackColor = panelColor;
+            this.removeImages.BackColor = panelColor;
             this.leftPanel.BackColor = panelColor;
             this.topPanel.BackColor = panelColor;
 
