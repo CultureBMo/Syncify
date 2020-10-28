@@ -2,6 +2,7 @@
 {
     using System;
     using System.Drawing;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
@@ -13,7 +14,7 @@
         {
             this.InitializeComponent();
 
-            if (!this.UsingLightTheme())
+            if (!UsingLightTheme())
             {
                 this.SetDarkMode();
             }
@@ -21,6 +22,32 @@
             this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
             this.retitle.Checked = Properties.Settings.Default.Retitle;
             this.removePictures.Checked = Properties.Settings.Default.RemovePictures;
+        }
+
+        private static bool RenamedAlready(string title)
+        {
+            if (title.Length > 1)
+            {
+                return int.TryParse(title.Substring(0, 2), out int returnInt);
+            }
+
+            return false;
+        }
+
+        private static bool UsingLightTheme()
+        {
+            // https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
+            var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+            var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
+
+            if (appsUseLightTheme is null)
+            {
+                return true;
+            }
+            else
+            {
+                return Convert.ToBoolean(appsUseLightTheme, CultureInfo.InvariantCulture);
+            }
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
@@ -40,17 +67,15 @@
 
             var folder = this.folderTextBox.Text;
             var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
-
             var jpgFiles = Directory.EnumerateFiles(folder, "*.jpg", SearchOption.AllDirectories);
-
 
             foreach (var currentFile in mp3Files)
             {
                 var file = TagLib.File.Create(currentFile);
 
-                if (!this.RenamedAlready(file.Tag.Title) && this.retitle.Checked)
+                if (!RenamedAlready(file.Tag.Title) && this.retitle.Checked)
                 {
-                    var newTitle = file.Tag.Track.ToString("00") + " " + file.Tag.Title;
+                    var newTitle = file.Tag.Track.ToString("00", CultureInfo.InvariantCulture) + " " + file.Tag.Title;
                     var oldTitle = file.Tag.Title;
 
                     file.Tag.Title = newTitle;
@@ -87,16 +112,6 @@
         private void Log(string text)
         {
             this.logTextBox.AppendText(text + Environment.NewLine);
-        }
-
-        private bool RenamedAlready(string title)
-        {
-            if (title.Length > 1)
-            {
-                return int.TryParse(title.Substring(0, 2), out int returnInt);
-            }
-
-            return false;
         }
 
         private void SetDarkMode()
@@ -140,22 +155,6 @@
             this.ForeColor = foregroundColor;
         }
 
-        private bool UsingLightTheme()
-        {
-            // https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
-            var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize");
-            var appsUseLightTheme = registryKey?.GetValue("AppsUseLightTheme");
-
-            if (appsUseLightTheme is null)
-            {
-                return true;
-            }
-            else
-            {
-                return Convert.ToBoolean(appsUseLightTheme);
-            }
-        }
-
         private void WriteLogHeader(string caption)
         {
             this.logTextBox.Text = string.Empty;
@@ -165,7 +164,7 @@
 
         private void WriteLogFooter(TimeSpan elapsed)
         {
-            this.Log(string.Format("Time elapsed: {0}", elapsed));
+            this.Log(string.Format(CultureInfo.InvariantCulture, "Time elapsed: {0}", elapsed));
             this.Log("Copyright © CultureBMo 2020");
             this.Log("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
             this.Log("Icon copyright © Yannick Lung http://www.yanlu.de");
