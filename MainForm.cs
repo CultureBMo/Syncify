@@ -153,6 +153,9 @@
 
             this.BackColor = backgroundColor;
             this.ForeColor = foregroundColor;
+
+            // nudge the textbox down a touch
+            this.folderTextBox.Location = new Point(this.folderTextBox.Location.X, this.folderTextBox.Location.Y + 2);
         }
 
         private void WriteLogHeader(string caption)
