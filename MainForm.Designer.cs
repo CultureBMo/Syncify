@@ -63,7 +63,6 @@
             this.folderTextBox.Name = "folderTextBox";
             this.folderTextBox.Size = new System.Drawing.Size(428, 22);
             this.folderTextBox.TabIndex = 1;
-            this.folderTextBox.TabStop = false;
             // 
             // browseButton
             // 
@@ -143,7 +142,6 @@
             this.mp3Logo.Size = new System.Drawing.Size(64, 64);
             this.mp3Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mp3Logo.TabIndex = 6;
-            this.mp3Logo.TabStop = false;
             // 
             // syncifyLabel
             // 
