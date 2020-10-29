@@ -1,5 +1,5 @@
 # Syncify
-An application to process MP3 files so that they can be played in order in cars equipped with Ford Sync.
+An application to process MP3 files so that they can be played in order in Ford cars equipped with the Sync audio system.
 
 Unlike pretty much every other MP3 player on the planet the Ford Sync audio system does not play MP3s in Track or Filename order - it orders by Title instead.
 
@@ -30,3 +30,5 @@ You can now listen to Purple Rain in the sequence Prince intended:
 07 I Would Die 4 U<br/>
 08 Baby I'm a Star<br/>
 09 Purple Rain
+
+Syncify also includes an option to remove images from files and folders. They are not displayed by Ford Sync and this option helps to save space.
