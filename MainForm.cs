@@ -168,7 +168,7 @@
         private void WriteLogFooter(TimeSpan elapsed)
         {
             this.Log(string.Format(CultureInfo.InvariantCulture, "Time elapsed: {0}", elapsed));
-            this.Log("Copyright © CultureBMo 2020");
+            this.Log("Copyright © CultureBMo 2021");
             this.Log("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
             this.Log("Icon copyright © Yannick Lung http://www.yanlu.de");
         }
