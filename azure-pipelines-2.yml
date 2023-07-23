@@ -34,5 +34,5 @@ steps:
 
 - task: ResharperCli@2
   inputs:
-    solutionOrProjectPath: '$(solution)'
+    solutionOrProjectPath: 'Syncify.sln'
     failBuildLevelSelector: 'Warning'
