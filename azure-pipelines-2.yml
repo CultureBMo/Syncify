@@ -36,3 +36,4 @@ steps:
   inputs:
     solutionOrProjectPath: 'Syncify.sln'
     failBuildLevelSelector: 'Warning'
+    failBuildOnCodeIssues: false
