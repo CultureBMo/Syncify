@@ -5,7 +5,7 @@ Unlike pretty much every other MP3 player on the planet the Ford Sync audio syst
 
 This means that, even if you have a carefully catalogued music collection, it will not play album tracks in order.
 
-For instance Purple Rain will be played alphabeticaly, like so:
+For instance Purple Rain will be played alphabetically, like so:
 
 Baby I'm a Star<br/>
 Computer Blue<br/>
