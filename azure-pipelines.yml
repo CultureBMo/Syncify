@@ -1,3 +1,5 @@
+name: $(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)
+
 trigger:
 - master
 
@@ -21,3 +23,18 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    msbuildArgs: '/t:publish /p:outputpath=$(Build.ArtifactStagingDirectory)'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/Syncify-$(Build.BuildNumber).zip'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Syncify-$(Build.BuildNumber).zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
