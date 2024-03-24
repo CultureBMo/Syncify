@@ -36,7 +36,7 @@ Syncify also includes an option to remove images from files and folders. They ar
 ## Pre-requisites
 In order to run Syncify you need
 - Windows 10 or later
-- [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) - you may have this already, but if not you will be prompted to download it, see below
+- [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) - you may have this already, but if not, you will be prompted to download it, see below
 
 ## Install Instructions
 1) Download the [Zip file for the latest release of Syncify](https://github.com/CultureBMo/Syncify/releases/download/v3.0/Syncify.3.0.0.0.zip)
