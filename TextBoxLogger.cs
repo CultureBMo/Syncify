@@ -4,15 +4,25 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    internal class TextBoxLogger : ILogger
+    /// <summary>
+    /// Provides a logger that outputs to a TextBox control.
+    /// </summary>
+    public class TextBoxLogger : ILogger
     {
         private TextBox textBox;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextBoxLogger"/> class.
+        /// </summary>
+        /// <param name="textBox">The TextBox control to which the logger will output.</param>
         internal TextBoxLogger(TextBox textBox)
         {
             this.textBox = textBox;
         }
 
+        /// <summary>
+        /// Clears the log output.
+        /// </summary>
         public void ClearLog()
         {
             if (this.textBox.InvokeRequired)
@@ -24,6 +34,10 @@
             this.textBox.Clear();
         }
 
+        /// <summary>
+        /// Logs an exception.
+        /// </summary>
+        /// <param name="exception">The exception to log.</param>
         public void LogError(Exception exception)
         {
             if (this.textBox.InvokeRequired)
@@ -37,6 +51,10 @@
             this.textBox.AppendText(Environment.NewLine);
         }
 
+        /// <summary>
+        /// Logs an informational message.
+        /// </summary>
+        /// <param name="message">The message to log.</param>
         public void LogInfo(string message)
         {
             if (this.textBox.InvokeRequired)

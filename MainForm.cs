@@ -7,11 +7,18 @@
     using System.Windows.Forms;
     using Microsoft.Win32;
 
+    /// <summary>
+    /// Represents the main form of the Syncify application.
+    /// Contains UI interaction logic.
+    /// </summary>
     public partial class MainForm : Form
     {
         private ILogger logger;
         private Stopwatch stopwatch = new Stopwatch();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// </summary>
         public MainForm()
         {
             this.InitializeComponent();
@@ -35,6 +42,10 @@
             }
         }
 
+        /// <summary>
+        /// Checks if the current Windows theme is light.
+        /// </summary>
+        /// <returns>true if the current theme is light; otherwise, false.</returns>
         private static bool UsingLightTheme()
         {
             // https://stackoverflow.com/questions/38734615/how-can-i-detect-windows-10-light-dark-mode
@@ -51,6 +62,11 @@
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the BrowseButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void BrowseButton_Click(object sender, EventArgs e)
         {
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK)
@@ -59,6 +75,11 @@
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the GoButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void GoButton_Click(object sender, EventArgs e)
         {
             try
@@ -67,13 +88,13 @@
                 var retitle = this.retitle.Checked;
                 var removeImages = this.removeImages.Checked;
 
-                this.WriteLogHeader("Retitling...");
+                this.WriteLogHeader();
                 this.stopwatch.Restart();
 
                 Mp3Methods.ReTitle(parentFolder, retitle, removeImages, this.logger);
 
                 this.stopwatch.Stop();
-                this.WriteLogFooter(this.stopwatch.Elapsed);
+                this.WriteLogFooter();
             }
             catch (Exception ex)
             {
@@ -81,6 +102,9 @@
             }
         }
 
+        /// <summary>
+        /// Sets the application to dark mode.
+        /// </summary>
         private void SetDarkMode()
         {
             // set dark title bar
@@ -125,16 +149,22 @@
             this.folderTextBox.Location = new Point(this.folderTextBox.Location.X, this.folderTextBox.Location.Y + 2);
         }
 
-        private void WriteLogHeader(string caption)
+        /// <summary>
+        /// Writes the log header.
+        /// </summary>
+        private void WriteLogHeader()
         {
             this.logger.ClearLog();
-            this.logger.LogInfo($"{caption}...");
+            this.logger.LogInfo("Retitling...");
             this.logger.LogInfo("-");
         }
 
-        private void WriteLogFooter(TimeSpan elapsed)
+        /// <summary>
+        /// Writes the log footer.
+        /// </summary>
+        private void WriteLogFooter()
         {
-            this.logger.LogInfo($"Time elapsed: {elapsed}");
+            this.logger.LogInfo($"Time elapsed: {this.stopwatch.Elapsed}");
             this.logger.LogInfo("Copyright © CultureBMo 2024");
             this.logger.LogInfo("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
             this.logger.LogInfo("Icon copyright © Yannick Lung http://www.yanlu.de");
