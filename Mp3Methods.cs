@@ -9,44 +9,64 @@
     {
         internal static void ReTitle(string parentFolder, bool retitle, bool removeImages, ILogger logger)
         {
-            var mp3Files = Directory.EnumerateFiles(parentFolder, "*.mp3", SearchOption.AllDirectories).ToList();
-
             if (removeImages)
             {
-                var jpgFiles = Directory.EnumerateFiles(parentFolder, "*.jpg", SearchOption.AllDirectories).ToList();
-                foreach (var jpg in jpgFiles)
-                {
-                    File.Delete(jpg);
-                }
+                DeleteAllJpgs(parentFolder);
             }
+
+            var mp3Files = Directory.EnumerateFiles(parentFolder, "*.mp3", SearchOption.AllDirectories);
 
             foreach (var currentFile in mp3Files)
             {
-                var file = TagLib.File.Create(currentFile);
-                var titlePrefix = file.Tag.Track.ToString("00", CultureInfo.InvariantCulture);
-
-                if (!RenamedAlready(file.Tag.Title, titlePrefix) && retitle)
+                using (var file = TagLib.File.Create(currentFile))
                 {
-                    var newTitle = $"{titlePrefix} {file.Tag.Title}";
-                    var oldTitle = file.Tag.Title;
+                    if (retitle)
+                    {
+                        RetitleFile(logger, file);
+                    }
 
-                    file.Tag.Title = newTitle;
+                    // remove images in the mp3 file
+                    if (removeImages)
+                    {
+                        RemoveImagesFromFile(logger, file);
+                    }
 
-                    logger.LogInfo($"{oldTitle} renamed {newTitle}");
+                    file.Save();
                 }
-
-                // remove images in the mp3 file
-                if (removeImages)
-                {
-                    file.Tag.Pictures = Array.Empty<TagLib.IPicture>();
-                    logger.LogInfo($"Removed image from {file.Tag.Title}");
-                }
-
-                file.Save();
-                file.Dispose();
 
                 logger.LogInfo("-");
             }
+        }
+
+        private static void DeleteAllJpgs(string parentFolder)
+        {
+            var jpgFiles = Directory.EnumerateFiles(parentFolder, "*.jpg", SearchOption.AllDirectories);
+            foreach (var jpg in jpgFiles)
+            {
+                File.Delete(jpg);
+            }
+        }
+
+        private static void RetitleFile(ILogger logger, TagLib.File file)
+        {
+            var titlePrefix = file.Tag.Track.ToString("00", CultureInfo.InvariantCulture);
+
+            if (!RenamedAlready(file.Tag.Title, titlePrefix))
+            {
+                var newTitle = $"{titlePrefix} {file.Tag.Title}";
+                var oldTitle = file.Tag.Title;
+
+                file.Tag.Title = newTitle;
+
+                logger.LogInfo($"{oldTitle} renamed {newTitle}");
+            }
+        }
+
+        private static void RemoveImagesFromFile(ILogger logger, TagLib.File file)
+        {
+            file.Tag.Pictures = Array.Empty<TagLib.IPicture>();
+
+            logger.LogInfo($"Removed image from {file.Tag.Title}");
         }
 
         private static bool RenamedAlready(string title, string trackNumber)

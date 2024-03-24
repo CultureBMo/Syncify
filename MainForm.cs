@@ -68,8 +68,7 @@
                 var removeImages = this.removeImages.Checked;
 
                 this.WriteLogHeader("Retitling...");
-                this.stopwatch.Reset();
-                this.stopwatch.Start();
+                this.stopwatch.Restart();
 
                 Mp3Methods.ReTitle(parentFolder, retitle, removeImages, this.logger);
 
