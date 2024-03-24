@@ -104,7 +104,7 @@
         {
             if (title.Length > 1)
             {
-                bool startsWithNumber = int.TryParse(title.Substring(0, 2), out int titleNumber);
+                bool startsWithNumber = int.TryParse(title[..2], out int titleNumber);
 
                 // if a track title does start with a number, check if it matches the track number
                 if (startsWithNumber)

@@ -13,8 +13,8 @@
     /// </summary>
     public partial class MainForm : Form
     {
-        private ILogger logger;
-        private Stopwatch stopwatch = new Stopwatch();
+        private readonly TextBoxLogger logger;
+        private readonly Stopwatch stopwatch = new ();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.

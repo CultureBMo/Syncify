@@ -18,10 +18,8 @@ namespace Syncify
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            using (var mainForm = new MainForm())
-            {
-                Application.Run(mainForm);
-            }
+            using var mainForm = new MainForm();
+            Application.Run(mainForm);
         }
     }
 }

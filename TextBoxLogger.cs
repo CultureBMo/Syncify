@@ -9,7 +9,7 @@
     /// </summary>
     public class TextBoxLogger : ILogger
     {
-        private TextBox textBox;
+        private readonly TextBox textBox;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextBoxLogger"/> class.
