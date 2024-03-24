@@ -1,37 +1,38 @@
 ﻿namespace Syncify
 {
     using System;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Globalization;
-    using System.IO;
-    using System.Linq;
     using System.Windows.Forms;
     using Microsoft.Win32;
 
     public partial class MainForm : Form
     {
+        private ILogger logger;
+        private Stopwatch stopwatch = new Stopwatch();
+
         public MainForm()
         {
             this.InitializeComponent();
 
-            if (!UsingLightTheme())
+            this.logger = new TextBoxLogger(this.logTextBox);
+
+            try
             {
-                this.SetDarkMode();
+                if (!UsingLightTheme())
+                {
+                    this.SetDarkMode();
+                }
+
+                this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
+                this.retitle.Checked = Properties.Settings.Default.Retitle;
+                this.removeImages.Checked = Properties.Settings.Default.RemoveImages;
             }
-
-            this.folderTextBox.Text = Properties.Settings.Default.InitialPath;
-            this.retitle.Checked = Properties.Settings.Default.Retitle;
-            this.removeImages.Checked = Properties.Settings.Default.RemoveImages;
-        }
-
-        private static bool RenamedAlready(string title)
-        {
-            if (title.Length > 1)
+            catch (Exception ex)
             {
-                return int.TryParse(title.Substring(0, 2), out int returnInt);
+                this.logger.LogError(ex);
             }
-
-            return false;
         }
 
         private static bool UsingLightTheme()
@@ -60,58 +61,25 @@
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            this.WriteLogHeader("Retitling...");
-
-            var stopwatch = new System.Diagnostics.Stopwatch();
-            stopwatch.Start();
-
-            var folder = this.folderTextBox.Text;
-            var mp3Files = Directory.EnumerateFiles(folder, "*.mp3", SearchOption.AllDirectories);
-            var jpgFiles = Directory.EnumerateFiles(folder, "*.jpg", SearchOption.AllDirectories);
-
-            foreach (var currentFile in mp3Files)
+            try
             {
-                var file = TagLib.File.Create(currentFile);
+                var parentFolder = this.folderTextBox.Text;
+                var retitle = this.retitle.Checked;
+                var removeImages = this.removeImages.Checked;
 
-                if (!RenamedAlready(file.Tag.Title) && this.retitle.Checked)
-                {
-                    var newTitle = file.Tag.Track.ToString("00", CultureInfo.InvariantCulture) + " " + file.Tag.Title;
-                    var oldTitle = file.Tag.Title;
+                this.WriteLogHeader("Retitling...");
+                this.stopwatch.Reset();
+                this.stopwatch.Start();
 
-                    file.Tag.Title = newTitle;
+                Mp3Methods.ReTitle(parentFolder, retitle, removeImages, this.logger);
 
-                    this.Log(oldTitle + " renamed " + newTitle);
-                }
-
-                // remove images in the folder that may be associated
-                if (this.removeImages.Checked)
-                {
-                    if (jpgFiles.Any())
-                    {
-                        foreach (var jpg in jpgFiles)
-                        {
-                            File.Delete(jpg);
-                        }
-                    }
-
-                    file.Tag.Pictures = Array.Empty<TagLib.IPicture>();
-
-                    this.Log("Removed image from " + file.Tag.Title);
-                }
-
-                file.Save();
-                file.Dispose();
-
-                this.Log("-");
+                this.stopwatch.Stop();
+                this.WriteLogFooter(this.stopwatch.Elapsed);
             }
-
-            stopwatch.Stop();
-            this.WriteLogFooter(stopwatch.Elapsed);
-        }
-
-        private void Log(string text)
-        {
-            this.logTextBox.AppendText(text + Environment.NewLine);
+            catch (Exception ex)
+            {
+                this.logger.LogError(ex);
+            }
         }
 
         private void SetDarkMode()
@@ -160,17 +128,17 @@
 
         private void WriteLogHeader(string caption)
         {
-            this.logTextBox.Text = string.Empty;
-            this.Log(caption + "...");
-            this.Log("-");
+            this.logger.ClearLog();
+            this.logger.LogInfo($"{caption}...");
+            this.logger.LogInfo("-");
         }
 
         private void WriteLogFooter(TimeSpan elapsed)
         {
-            this.Log(string.Format(CultureInfo.InvariantCulture, "Time elapsed: {0}", elapsed));
-            this.Log("Copyright © CultureBMo 2021");
-            this.Log("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
-            this.Log("Icon copyright © Yannick Lung http://www.yanlu.de");
+            this.logger.LogInfo($"Time elapsed: {elapsed}");
+            this.logger.LogInfo("Copyright © CultureBMo 2024");
+            this.logger.LogInfo("Tag-Lib Sharp: https://github.com/mono/taglib-sharp");
+            this.logger.LogInfo("Icon copyright © Yannick Lung http://www.yanlu.de");
         }
     }
 }
