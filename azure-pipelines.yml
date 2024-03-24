@@ -1,3 +1,5 @@
+name: $(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)
+
 trigger:
 - master
 
@@ -21,7 +23,7 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-    msbuildArgs: '/t:publish /p:PublishSingleFile=True /p:outputpath=$(Build.ArtifactStagingDirectory)'
+    msbuildArgs: '/t:publish /p:outputpath=$(Build.ArtifactStagingDirectory)'
 
 - task: ArchiveFiles@2
   inputs:
